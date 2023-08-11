@@ -29,7 +29,7 @@ app.get('*', (req, res) => {
 
 const port = process.env.PORT || 8005;
 app.listen(port, function (err) {
-    console.log("Server listening at port 8005");
+    console.log("server listening at port 8005");
 });
 
 DefaultData();
