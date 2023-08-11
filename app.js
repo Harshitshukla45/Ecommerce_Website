@@ -16,16 +16,16 @@ app.use(cors({
     origin: true,
     credentials: true
 }));
+// app.use(router);
+
+
 app.use('/api', router);
-
-// Serve the static build of your React app
-const reactBuildPath = path.join(__dirname, 'build'); // Point to the build folder
+const reactBuildPath = path.join(__dirname, 'build');
 app.use(express.static(reactBuildPath));
-
-// Serve the React app for all other requests
 app.get('*', (req, res) => {
     res.sendFile(path.join(reactBuildPath, 'index.html'));
 });
+
 
 const port = process.env.PORT || 8005;
 app.listen(port, function (err) {
